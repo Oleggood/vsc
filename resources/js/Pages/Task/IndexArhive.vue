@@ -3,74 +3,33 @@
         <div class="flex justify-center">
             <h3 class="text-lg font-semibold">Архив задач</h3>
         </div>
-
         <div class="flex items-end justify-between mt-4">
             <span class="text-sm text-gray-600">*для удаления записей/внесения изменений в архив, обратитесь к администраторам</span>
-            <div class="flex items-end justify-between">
-                <!--                <div class="mr-5">-->
-                <!--                    <Link-->
-                <!--                        class="inline-flex items-center px-4 py-2 bg-sky-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"-->
-                <!--                        @click="sendUsersSelectedIds(this.taskSelUsers)"-->
-                <!--                    >-->
-                <!--                        <span class="">выгрузить Excel</span>-->
-                <!--                    </Link>-->
-                <!--                </div>-->
-
-
-<!--                                <div class="w-[29rem]">-->
-<!--                                    <p>Фильтр по исполнителям:</p>-->
-<!--                                    <multiselect-->
-<!--                                        :custom-label="customLabel"-->
-<!--                                        v-model="usersSelected"-->
-<!--                                        :options="users"-->
-<!--                                        :multiple="true"-->
-<!--                                        :close-on-select="true"-->
-<!--                                        :clear-on-select="true"-->
-<!--                                        :preserve-search="false"-->
-<!--                                        placeholder="Поиск"-->
-
-<!--                                        track-by="id"-->
-<!--                                        :preselect-first="false"-->
-
-<!--                                        selectLabel="Нажмите для добавления"-->
-<!--                                        selectedLabel="Выбрано"-->
-<!--                                        deselectLabel="Нажмите для отмены выбора"-->
-
-<!--                                    >-->
-<!--                                        <template-->
-<!--                                            class=""-->
-<!--                                            slot="selection" slot-scope="{ values, search, isOpen }">-->
-<!--                                                    <span class="multiselect__single" v-if="values.length" v-show="!isOpen">-->
-<!--                                                        {{ values.length }} options selected-->
-<!--                                                    </span>-->
-<!--                                        </template>-->
-<!--                                    </multiselect>-->
-<!--                                </div>-->
-            </div>
         </div>
-
 
         <!--index-->
         <div v-if="tasks.length > 0" class="mt-6 min-h-[130px]">
             <table class="border-collapse border border-slate-500 w-full">
                 <thead class="bg-gray-200">
-                <th class="border border-slate-600 py-2">
-                    <div class="flex justify-center">
-                        <div>№</div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortNumItems(sortParam = 'id')">ID</div>
-                        <div class="relative pr-2">
-                            <div class="absolute left-0" v-show="sortParam === 'id'">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12" enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                <tr>
+                    <th class="border border-slate-600 py-2">
+                        <div class="flex justify-center">
+                            <div>№</div>
+                        </div>
+                    </th>
+                    <th class="border border-slate-600 py-2">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка" @click="sortNumItems(sortParam = 'id')">ID
+                            </div>
+                            <div class="relative pr-2">
+                                <div class="absolute left-0" v-show="sortParam === 'id'">
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12" enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                        AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                        cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                        CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -80,27 +39,28 @@
                                                                        4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                        dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                                     </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'task_date')">
-                            Дата задачи
-                        </div>
-                        <div class="relative">
-                            <div class="absolute right-1" v-show="sortParam === 'task_date'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка"
+                                 @click="sortTextItems(sortParam = 'task_date')">
+                                Дата задачи
+                            </div>
+                            <div class="relative">
+                                <div class="absolute right-1" v-show="sortParam === 'task_date'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                            cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                            CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -110,27 +70,27 @@
                                                                                            4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                            dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                                                         </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'number')">
-                            Номер
-                        </div>
-                        <div class="relative">
-                            <div class="absolute left-0" v-show="sortParam === 'number'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'number')">
+                                Номер
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-0" v-show="sortParam === 'number'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                                                AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                                                cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                                                CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -140,27 +100,28 @@
                                                                                                                4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                                                dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                 </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'task_name')">
-                            Наименование
-                        </div>
-                        <div class="relative">
-                            <div class="absolute left-0" v-show="sortParam === 'task_name'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка"
+                                 @click="sortTextItems(sortParam = 'task_name')">
+                                Наименование
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-0" v-show="sortParam === 'task_name'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                                                                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                                                                    cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                                                                    CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -170,27 +131,27 @@
                                                                                                                                    4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                                                                    dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                     </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'item')">
-                            Пункт
-                        </div>
-                        <div class="relative">
-                            <div class="absolute left-0" v-show="sortParam === 'item'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'item')">
+                                Пункт
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-0" v-show="sortParam === 'item'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                                                                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                                                                    cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                                                                    CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -200,27 +161,27 @@
                                                                                                                                    4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                                                                    dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                     </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'task')">
-                            Текст поручения
-                        </div>
-                        <div class="relative">
-                            <div class="absolute left-0" v-show="sortParam === 'task'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'task')">
+                                Текст поручения
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-0" v-show="sortParam === 'task'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                                                                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                                                                    cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                                                                    CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -230,27 +191,27 @@
                                                                                                                                    4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                                                                    dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                     </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'note')">
-                            Примечание
-                        </div>
-                        <div class="relative">
-                            <div class="absolute left-0" v-show="sortParam === 'note'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'note')">
+                                Примечание
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-0" v-show="sortParam === 'note'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                                                                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                                                                    cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                                                                    CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -260,27 +221,27 @@
                                                                                                                                    4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                                                                    dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                     </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'done')">
-                            Отметки об исполнении
-                        </div>
-                        <div class="relative">
-                            <div class="absolute left-0" v-show="sortParam === 'done'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'done')">
+                                Отметки об исполнении
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-0" v-show="sortParam === 'done'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                                                                    AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                                                                    cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                                                                    CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -290,27 +251,28 @@
                                                                                                                                    4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                                                                    dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                     </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'deadline')">
-                            Крайний срок исполнения
-                        </div>
-                        <div class="relative">
-                            <div class="absolute right-1" v-show="sortParam === 'deadline'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка"
+                                 @click="sortTextItems(sortParam = 'deadline')">
+                                Крайний срок исполнения
+                            </div>
+                            <div class="relative">
+                                <div class="absolute right-1" v-show="sortParam === 'deadline'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                            cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                            CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -320,28 +282,28 @@
                                                                                            4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                            dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                                                         </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="группировка"
-                             @click="sortNumItems(sortParam = 'task_status_id')">
-                            Статус задачи
-                        </div>
-                        <div class="relative">
-                            <div class="absolute left-0" v-show="sortParam === 'task_status_id'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="группировка"
+                                 @click="sortNumItems(sortParam = 'task_status_id')">
+                                Статус задачи
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-0" v-show="sortParam === 'task_status_id'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                            cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                            CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -351,32 +313,33 @@
                                                                                            4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                            dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                                                         </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        Исполнители
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'comment')">
-                            Комментарии
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            Исполнители
                         </div>
-                        <div class="relative">
-                            <div class="absolute" v-show="sortParam === 'comment'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка"
+                                 @click="sortTextItems(sortParam = 'comment')">
+                                Комментарии
+                            </div>
+                            <div class="relative">
+                                <div class="absolute" v-show="sortParam === 'comment'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                            cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                            CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -386,27 +349,28 @@
                                                                                            4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                            dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                                                         </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'created_at')">
-                            Создана
-                        </div>
-                        <div class="relative">
-                            <div class="absolute" v-show="sortParam === 'created_at'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка"
+                                 @click="sortTextItems(sortParam = 'created_at')">
+                                Создана
+                            </div>
+                            <div class="relative">
+                                <div class="absolute" v-show="sortParam === 'created_at'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                            cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                            CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -416,27 +380,28 @@
                                                                                            4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                            dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                                                         </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
-                <th class="border border-slate-600 py-2 pr-2 text-sm">
-                    <div class="flex justify-center">
-                        <div class="cursor-pointer" title="сортировка" @click="sortTextItems(sortParam = 'updated_at')">
-                            Последнее изменение
-                        </div>
-                        <div class="relative">
-                            <div class="absolute" v-show="sortParam === 'updated_at'">
-                                <svg version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" width="8px"
-                                     height="8px"
-                                     viewBox="0 0 12 12"
-                                     enable-background="new 0 0 12 12"
-                                     xml:space="preserve">  <image
-                                    id="image0" width="12" height="12" x="0" y="0"
-                                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+                    </th>
+                    <th class="border border-slate-600 py-2 pr-2 text-sm">
+                        <div class="flex justify-center">
+                            <div class="cursor-pointer" title="сортировка"
+                                 @click="sortTextItems(sortParam = 'updated_at')">
+                                Последнее изменение
+                            </div>
+                            <div class="relative">
+                                <div class="absolute" v-show="sortParam === 'updated_at'">
+                                    <svg version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                         y="0px" width="8px"
+                                         height="8px"
+                                         viewBox="0 0 12 12"
+                                         enable-background="new 0 0 12 12"
+                                         xml:space="preserve">  <image
+                                        id="image0" width="12" height="12" x="0" y="0"
+                                        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
                                                                                            AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
                                                                                            cwAAALEAAACxAcYtSY0AAAAHdElNRQfnBBELMTLYb65zAAAAw0lEQVQ4y+3QP0tCcRjF8Y8Ft+Q6
                                                                                            CEHkFLi4C45OEtwlEBp6CUE0OQu9CjcXJ5c7NfgKylVw6g9N0QvQoU1+bYF4b967Rmd8zvnyPM8h
@@ -446,10 +411,11 @@
                                                                                            4mabuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0xN1QxMTo0OTo1MCswMDowMJM7IwUAAAAZ
                                                                                            dEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                                                                                         </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </th>
+                    </th>
+                </tr>
                 </thead>
                 <tbody>
                 <tr v-for="(task, index) in usersFilter" :key="task.id" @dblclick="textMarker">
@@ -497,7 +463,8 @@
                 </tbody>
             </table>
         </div>
-        <h3 v-else class="mt-6 text-gray-900">Здесь пока пусто, записи создадутся автоматически при удалении задач...</h3>
+        <h3 v-else class="mt-6 text-gray-900">Здесь пока пусто, записи создадутся автоматически при удалении
+            задач...</h3>
         <div class="mt-4">
             <p>Всего задач в архиве: {{ tasks.length }}</p>
         </div>
@@ -577,16 +544,9 @@ export default {
     },
 
     props: [
-        'users',
-        'departments',
-        'positions',
         'roles',
         'tasks',
         'statuses',
-        'taskStat1',
-        'taskStat2',
-        'taskStat3',
-        'taskStat4',
     ],
 
     methods: {

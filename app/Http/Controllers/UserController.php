@@ -128,8 +128,8 @@ class UserController extends Controller
     {
         $tasks = $user['tasks'];
         unset($user['tasks']);
-        $user->delete();
         $user->tasks()->detach($tasks);
+        $user->delete();
         return redirect()->route('user.index');
     }
 }

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Assignment\StoreRequest;
-use App\Http\Requests\Assignment\UpdateRequest;
+use App\Http\Requests\Assignment\AssignmentRequest;
 use App\Models\Assignment;
 use App\Models\Basis;
 use App\Models\Crime;
@@ -53,7 +52,7 @@ class StatisticController extends BaseController
     }
 
 
-    public function store(StoreRequest $request)
+    public function store(AssignmentRequest $request)
     {
         $data = $request->validated();
 
@@ -70,7 +69,7 @@ class StatisticController extends BaseController
     }
 
 
-    public function update(Assignment $assignment, UpdateRequest $request)
+    public function update(Assignment $assignment, AssignmentRequest $request)
     {
         $data = $request->validated();
 

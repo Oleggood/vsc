@@ -84,8 +84,7 @@ class User extends Authenticatable
         return $this->hasMany(Assignment::class, 'execut_id', 'id');
     }
 
-
-    public function isManager()
+    public function isManager(): bool
     {
         $isDirector = $this->position()->where('is_director', 1)->get();
         $isDeputyDirector = $this->position()->where('is_deputy_director', 1)->get();
@@ -103,7 +102,5 @@ class User extends Authenticatable
         });
         return $usersFormattedCollection->sortBy('name')->values()->all();
     }
-
-
 
 }
